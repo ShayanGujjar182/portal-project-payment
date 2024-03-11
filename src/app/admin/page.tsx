@@ -2,7 +2,7 @@ import React from 'react'
 
 function Page() {
   return (
-    <div>This is admin dashboard</div>
+    <div className='text-white text-2xl w-full text-center mt-12'>This is admin dashboard</div>
   )
 }
 

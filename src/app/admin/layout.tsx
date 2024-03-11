@@ -8,7 +8,7 @@ export default function RootLayout({
   }>) {
     return (
       <html lang="en" className="h-screen w-screen ">
-        <body className=" overflow-x-hidden w-full h-full overflow-y-auto">
+        <body className=" overflow-x-hidden w-full h-full ">
             <div id="header" className=" bg-[#1B1F23] h-[8rem]">{<Header/>}</div>
             {children}
         </body>

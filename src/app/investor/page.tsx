@@ -9,7 +9,8 @@ function Page() {
 
   async function fetch() {
     try {
-      const userId = Cookies.get("protalId");
+      const userId = Cookies.get("portalId");
+      console.log(userId, "this is user id")
       if (userId) {
         const fetchInvoice = await axios.post("/api/getInvoice", {
           userId: userId,
@@ -25,18 +26,18 @@ function Page() {
       console.log(error);
     }
   }
-  console.log(data);
+  console.log(typeof(data));
 
   useEffect(() => {
     fetch();
   }, []);
   return (
-    <div className="w-full flex flex-col justify-center items-center">
-      <span>Investor Account</span>
+    <div className="w-full flex flex-col text-white justify-center items-center">
+      <span className="w-full bg-black  xs:text-2xl md:text-4xl text-center py-3">Investor Account</span>
       <div className="flex flex-col">
-        {data &&
+        {data.length != 0 ?
           data.map((newdata) => (
-            <div className="" key={newdata._id} className="flex flex-row gap-4">
+            <div  key={newdata._id} className="flex flex-row gap-4">
               <Image
                 src={newdata.imageUrl}
                 alt="product Image"
@@ -74,7 +75,7 @@ function Page() {
                 </span>
               </span>
             </div>
-          ))}
+          )) : <span className="mt-4"> Sorry No Products to Show </span>} 
       </div>
       {message && <span>{message}</span>}
     </div>

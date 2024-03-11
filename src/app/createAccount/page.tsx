@@ -105,9 +105,11 @@ export default function ProfileForm() {
   }
   return (
     <Form {...form}  >
-      <div className="w-full h-screen flex justify-center items-center">
+      <div className="flex flex-col justify-center items-center ">
+        <h1 className="text-white text-4xl bg-black w-full text-center p-4 font-bold">Create Account</h1>
+      <div className="w-full h-screen text-white flex justify-center mt-12 mx-1 my-2">
         <div className="flex flex-col items-center">
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 max-w-4xl">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4 max-w-4xl">
         <FormField
           control={form.control}
           name="email"
@@ -121,7 +123,7 @@ export default function ProfileForm() {
             </FormItem>
           )}
         />
-        <div className="flex gap-2">
+        <div className="flex xs:flex-col md:flex-row gap-2">
         <FormField
           control={form.control}
           name="firstName"
@@ -188,7 +190,7 @@ export default function ProfileForm() {
             </FormItem>
           )}
         />
-        <div className="flex justify-between">
+        <div className="flex xs:flex-col md:flex-row xs:gap-3 justify-between">
         <Button type="submit" className="bg-blue-800">Submit</Button>
         
         <FormField
@@ -196,17 +198,17 @@ export default function ProfileForm() {
           name="type"
           render={({ field }) => (
             <FormItem className="self-center flex flex-col ">
-                <div className="flex items-center gap-3">
+                <div className="flex items-center xs:gap-2 md:gap-3">
               <FormLabel>Role:</FormLabel>
               <FormControl>
                 <RadioGroup
                   onValueChange={field.onChange}
                   defaultValue={field.value}
-                  className="flex flex-row items-center "
+                  className="flex  items-center "
                 >
-                  <FormItem className="flex items-center space-x-2 space-y-0">
+                  <FormItem className="flex  items-center space-x-2 space-y-0">
                     <FormControl>
-                      <RadioGroupItem value="investor" />
+                      <RadioGroupItem value="investor" className="border-white bg-white" />
                     </FormControl>
                     <FormLabel className="font-normal">
                       Investor
@@ -214,10 +216,10 @@ export default function ProfileForm() {
                   </FormItem>
                   <FormItem className="flex items-center space-x-2 space-y-0">
                     <FormControl>
-                      <RadioGroupItem value="admin" />
+                      <RadioGroupItem value="admin" className="border-white bg-white"/>
                     </FormControl>
                     <FormLabel className="font-normal">
-                      admin
+                      Admin
                     </FormLabel>
                   </FormItem>
                 </RadioGroup>
@@ -227,11 +229,12 @@ export default function ProfileForm() {
             </FormItem>
           )}
         />
-        <Link href={"/sign-in"} className="bg-black text-white flex justify-center items-center rounded-md px-3">Sign- in</Link>
+        <Link href={"/sign-in"} className="bg-black py-2 text-white flex justify-center items-center rounded-md px-3">Sign- in</Link>
         </div>
       </form>
       
       {message && <span className="p-3 m-4 bg-red-600 text-white rounded-md ">{message}</span>}
+      </div>
       </div>
       </div>
     </Form>

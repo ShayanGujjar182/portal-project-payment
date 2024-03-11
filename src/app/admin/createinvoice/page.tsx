@@ -93,7 +93,7 @@ function Page() {
     }
     setMessage(false);
   }
-  async function handleExchangeRate(e) {
+  async function handleExchangeRate(e : any) {
     setExchangeRate(e.target.value);
   }
   async function updatePrice() {
@@ -113,7 +113,7 @@ function Page() {
   }
   async function fetch() {
     try {
-      const userId = Cookies.get("protalId");
+      const userId = Cookies.get("portalId");
       console.log(userId, "got from cookies");
       if (userId) {
         const getPrice = await axios.post("/api/getPrice", { id: userId });
@@ -177,7 +177,7 @@ function Page() {
             </select>
                 </span>
           </div>
-          <div className=" overflow-visible overflow-y-scroll">
+          <div className=" ">
             <div className="flex flex-row justify-around">
             <div className="flex flex-col gap-3 p-5">
                 <span className="text-white">Product Id:</span>
